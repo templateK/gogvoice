@@ -35,8 +35,4 @@ run {
     /* ex) gradle run -DGapp=path/to/googleapplicationcredential.json */
 
     systemProperty "GOOGLE_APPLICATION_CREDENTIALS", System.getProperty("Gapp")
-
-
-    /* Need to split the space-delimited value in the exec.args */
-    //args System.getProperty("exec.args", "").split()    
 }
