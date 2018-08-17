@@ -26,7 +26,7 @@ run {
     /*  "prefix." is a prefix to prevent accidental system environment corruption of the running app  */
     /*  when running gradle, pass them as following format: -Dprefix.EnvName=Value                    */
     /*  ex) gradle run -Dgog.Foo=Value -Dgog.Wat=Value                                                */
-    /*  with gradle run --info options, you can check the env variable passed or not.                 */
+    /*  with gradle run --info, you can check the env variable passed or not.                 */
 
     System.properties.each { k,v ->
         if (k.startsWith("gog.")) {
