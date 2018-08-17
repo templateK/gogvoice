@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'App'
+
+dependencies {
+    compile 'com.google.guava:guava:23.0'
+    compile group: 'com.google.cloud', name: 'google-cloud-speech', version: '0.58.0-beta'
+    testCompile 'junit:junit:4.12'
+}
+
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+}
+
+run {    
+    /*  Pass various system environment variables to the jvm                                          */
+    /*  "prefix." is a prefix to prevent accidental system environment corruption of the running app  */
+    /*  when running gradle, pass them as following format: -Dprefix.EnvName=Value                    */
+    /*  ex) gradle run -Dgog.Foo=Value -Dgog.Wat=Value                                                */
+    /*  with gradle run --info options, you can check the env variable passed or not.                 */
+
+    System.properties.each { k,v ->
+        if (k.startsWith("gog.")) {
+            systemProperty k - "gog.", v
+        }
+    }
+
+    /* Or just each by name: */
+    /* ex) gradle run -DGapp=path/to/googleapplicationcredential.json */
+
+    systemProperty "GOOGLE_APPLICATION_CREDENTIALS", System.getProperty("Gapp")
+
+
+    /* Need to split the space-delimited value in the exec.args */
+    //args System.getProperty("exec.args", "").split()    
+}
+
+/* this is for generating uberjar and standalone app */
+/* jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compileClasspath.files.collect {"$it.name"}.join(' '),
+                'Main-Class': 'your.main.class'
+        )
+    }
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+} */
