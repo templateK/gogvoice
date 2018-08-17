@@ -1,0 +1,1 @@
+A sample project for passing system environment variable to jvm when executing `gradle run`
