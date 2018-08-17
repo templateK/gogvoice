@@ -19,12 +19,17 @@ public class App {
    */
   public static void main(String... args) throws Exception {
 
+    if ( args.length < 1) {
+        System.err.println(String.format("args.length: %2d", args.length));
+        System.err.println("audio file name is not specified.");
+        return;
+    }
 
     // Instantiates a client
     try ( SpeechClient speechClient = SpeechClient.create()) {
 
       // The path to the audio file to transcribe
-      String fileName = "./resources/audio.ogg";
+      String fileName = args[0];
 
       // Reads the audio file into memory
       Path path = Paths.get(fileName);
