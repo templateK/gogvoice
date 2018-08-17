@@ -16,6 +16,11 @@ repositories {
     mavenCentral()
 }
 
+/* https://docs.gradle.org/current/userguide/application_plugin.html                 */
+/* You can hardcode credential location.                                             */
+/* This method overrides environment variables on run task. Maybe other tasks too(?) */
+// applicationDefaultJvmArgs = [ "-DGOOGLE_APPLICATION_CREDENTIALS=hardcoded.json" ]
+
 
 /* https://stackoverflow.com/questions/23689054/problems-passing-system-properties-and-parameters-when-running-java-class-via-gr */
 run {    
