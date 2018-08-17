@@ -43,16 +43,3 @@ run {
     /* Need to split the space-delimited value in the exec.args */
     //args System.getProperty("exec.args", "").split()    
 }
-
-/* this is for generating uberjar and standalone app */
-/* jar {
-    manifest {
-        attributes(
-                'Class-Path': configurations.compileClasspath.files.collect {"$it.name"}.join(' '),
-                'Main-Class': 'your.main.class'
-        )
-    }
-    from {
-        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-} */
