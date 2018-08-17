@@ -17,6 +17,10 @@ repositories {
     mavenCentral()
 }
 
+
+/* original reference:
+   https://stackoverflow.com/questions/23689054/problems-passing-system-properties-and-parameters-when-running-java-class-via-gr
+ */
 run {    
     /*  Pass various system environment variables to the jvm                                          */
     /*  "prefix." is a prefix to prevent accidental system environment corruption of the running app  */
