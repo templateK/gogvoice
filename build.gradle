@@ -8,7 +8,6 @@ mainClassName = 'App'
 dependencies {
     compile 'com.google.guava:guava:23.0'
     compile group: 'com.google.cloud', name: 'google-cloud-speech', version: '0.58.0-beta'
-    testCompile 'junit:junit:4.12'
 }
 
 repositories {
